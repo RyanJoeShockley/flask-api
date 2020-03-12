@@ -1,0 +1,806 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /modules/dns_a/{domain_name}:
+    get:
+      operationId: modules.dns_a.list_A
+      tags:
+        - DNS Lookups
+      summary: List A/CNAME records from all Name Servers
+      description: List A/CNAME records from all Name Servers
+      parameters:
+        - name: domain_name
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed A records
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    root_domain:
+                      type: string
+                    ns_server:
+                      type: string
+                    ns_serverip:
+                      type: string
+                    domain:
+                      type: string
+                    value:
+                      type: string
+                    ttl:
+                      type: string
+                    type:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    useragent:
+                      type: string
+
+  /modules/dns_mx/{domain_name}:
+    get:
+      operationId: modules.dns_mx.list_mx
+      tags:
+        - DNS Lookups
+      summary: List MX records from all Name Servers
+      description: List MX record from all Name Servers
+      parameters:
+        - name: domain_name
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed MX records
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    root_domain:
+                      type: string
+                    ns_server:
+                      type: string
+                    ns_serverip:
+                      type: string
+                    domain:
+                      type: string
+                    value:
+                      type: string
+                    ttl:
+                      type: string
+                    type:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    useragent:
+                      type: string
+
+  /modules/dns_golive/{domain_name}:
+    get:
+      operationId: modules.dns_golive.list_golive
+      tags:
+        - DNS Lookups
+      summary: List A/CNAME records from all Name Servers, (Includes a non-authoratative A record lookup for Cnames)
+      description: List A/CNAME record from all Name Servers, (Includes a non-authoratative A record lookup for Cnames)
+      parameters:
+        - name: domain_name
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed GOLIVE records
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    root_domain:
+                      type: string
+                    ns_server:
+                      type: string
+                    ns_serverip:
+                      type: string
+                    domain:
+                      type: string
+                    value:
+                      type: string
+                    ttl:
+                      type: string
+                    type:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    useragent:
+                      type: string
+
+  /modules/dns_txt/{domain_name}:
+    get:
+      operationId: modules.dns_txt.list_txt
+      tags:
+        - DNS Lookups
+      summary: List TXT records from all Name Servers
+      description: List TXT record from all Name Servers
+      parameters:
+        - name: domain_name
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed TXT records
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    root_domain:
+                      type: string
+                    ns_server:
+                      type: string
+                    ns_serverip:
+                      type: string
+                    domain:
+                      type: string
+                    value:
+                      type: string
+                    ttl:
+                      type: string
+                    type:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    useragent:
+                      type: string
+
+  /modules/cert_basic/{domain_name}:
+    get:
+      operationId: modules.cert_basic.list_cert_basic
+      tags:
+        - Certificate Lookups
+      summary: Lists Information about an SSL Certificate
+      description: Lists Information about an SSL Certificate
+      parameters:
+        - name: domain_name
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed SSL Certificate
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    CN:
+                      type: string
+                    notAfter:
+                      type: string
+                    notBefore:
+                      type: string
+                    Issuer:
+                      type: string
+                    Altnames:
+                      type: string
+                    MD5_Thumb:
+                      type: string
+                    SHA1_Thumb:
+                      type: string
+                    SHA256_Thumb:
+                      type: string
+                    Version:
+                      type: string
+                    SerialNumber:
+                      type: string
+                    Valid_Host:
+                      type: string
+                    Days_Until_Expire:
+                      type: string
+                    useragent:
+                      type: string
+                    requesting_ip:
+                      type: string
+
+  /modules/cert_advanced/{domain_name}:
+    get:
+      operationId: modules.cert_advanced.list_cert_advanced
+      tags:
+        - Certificate Lookups
+      summary: Lists Information about an SSL Certificate
+      description: Lists Information about an SSL Certificate
+      parameters:
+        - name: domain_name
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed SSL Certificate
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    CN:
+                      type: string
+                    notAfter:
+                      type: string
+                    notBefore:
+                      type: string
+                    Issuer:
+                      type: string
+                    Altnames:
+                      type: string
+                    MD5_Thumb:
+                      type: string
+                    SHA1_Thumb:
+                      type: string
+                    SHA256_Thumb:
+                      type: string
+                    Version:
+                      type: string
+                    SerialNumber:
+                      type: string
+                    Valid_Host:
+                      type: string
+                    Days_Until_Expire:
+                      type: string
+                    useragent:
+                      type: string
+                    requesting_ip:
+                      type: string
+
+  /modules/email_from/{address}/{num}:
+    get:
+      operationId: modules.email_from.list_email_from
+      tags:
+        - Email Lookups
+      summary: Lists E-mails from an address
+      description: Lists E-mails from an address
+      parameters:
+        - name: address
+          in: path
+          type: string
+          required: True
+        - name: num
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+                    size:
+                      type: string
+                    receiving_relay_ip:
+                      type: string
+                    receiving_relay_hostname:
+                      type: string
+                    sending_relay:
+                      type: string
+                    status:
+                      type: string
+                    subject:
+                      type: string
+                    to:
+                      type: string
+                    from:
+                      type: string
+                    date:
+                      type: string
+                    useragent:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    delay_before_queue:
+                      type: string
+                    delay_in_queue:
+                      type: string
+                    delay_conn_setup:
+                      type: string
+                    delay_transmission:
+                      type: string
+                    delay_total:
+                      type: string
+                    dsn_code:
+                      type: string
+                    nrcpt:
+                      type: string
+                    messageid:
+                      type: string
+                    queueid:
+                      type: string
+                    relay_source:
+                      type: string
+                    client_hostname:
+                      type: string
+                    client_ip:
+                      type: string
+
+  /modules/email_messageid/{address}/{num}:
+    get:
+      operationId: modules.email_messageid.list_email_messageid
+      tags:
+        - Email Lookups
+      summary: Lists E-mails from a MessageID
+      description: Lists E-mails from a MessageID
+      parameters:
+        - name: address
+          in: path
+          type: string
+          required: True
+        - name: num
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+                    size:
+                      type: string
+                    receiving_relay_ip:
+                      type: string
+                    receiving_relay_hostname:
+                      type: string
+                    sending_relay:
+                      type: string
+                    status:
+                      type: string
+                    subject:
+                      type: string
+                    to:
+                      type: string
+                    from:
+                      type: string
+                    date:
+                      type: string
+                    useragent:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    delay_before_queue:
+                      type: string
+                    delay_in_queue:
+                      type: string
+                    delay_conn_setup:
+                      type: string
+                    delay_transmission:
+                      type: string
+                    delay_total:
+                      type: string
+                    dsn_code:
+                      type: string
+                    nrcpt:
+                      type: string
+                    messageid:
+                      type: string
+                    queueid:
+                      type: string
+                    relay_source:
+                      type: string
+                    client_hostname:
+                      type: string
+                    client_ip:
+                      type: string
+
+  /modules/email_queueid/{address}/{num}:
+    get:
+      operationId: modules.email_queueid.list_email_queueid
+      tags:
+        - Email Lookups
+      summary: Lists E-mails from a QueueID
+      description: Lists E-mails from a QueueID
+      parameters:
+        - name: address
+          in: path
+          type: string
+          required: True
+        - name: num
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+                    size:
+                      type: string
+                    receiving_relay_ip:
+                      type: string
+                    receiving_relay_hostname:
+                      type: string
+                    sending_relay:
+                      type: string
+                    status:
+                      type: string
+                    subject:
+                      type: string
+                    to:
+                      type: string
+                    from:
+                      type: string
+                    date:
+                      type: string
+                    useragent:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    delay_before_queue:
+                      type: string
+                    delay_in_queue:
+                      type: string
+                    delay_conn_setup:
+                      type: string
+                    delay_transmission:
+                      type: string
+                    delay_total:
+                      type: string
+                    dsn_code:
+                      type: string
+                    nrcpt:
+                      type: string
+                    messageid:
+                      type: string
+                    queueid:
+                      type: string
+                    relay_source:
+                      type: string
+                    client_hostname:
+                      type: string
+                    client_ip:
+                      type: string
+
+  /modules/email_subject/{address}/{num}:
+    get:
+      operationId: modules.email_subject.list_email_subject
+      tags:
+        - Email Lookups
+      summary: Lists E-mails from the Subject
+      description: Lists E-mails from the Subject
+      parameters:
+        - name: address
+          in: path
+          type: string
+          required: True
+        - name: num
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+                    size:
+                      type: string
+                    receiving_relay_ip:
+                      type: string
+                    receiving_relay_hostname:
+                      type: string
+                    sending_relay:
+                      type: string
+                    status:
+                      type: string
+                    subject:
+                      type: string
+                    to:
+                      type: string
+                    from:
+                      type: string
+                    date:
+                      type: string
+                    useragent:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    delay_before_queue:
+                      type: string
+                    delay_in_queue:
+                      type: string
+                    delay_conn_setup:
+                      type: string
+                    delay_transmission:
+                      type: string
+                    delay_total:
+                      type: string
+                    dsn_code:
+                      type: string
+                    nrcpt:
+                      type: string
+                    messageid:
+                      type: string
+                    queueid:
+                      type: string
+                    relay_source:
+                      type: string
+                    client_hostname:
+                      type: string
+                    client_ip:
+                      type: string
+              
+  /modules/email_to/{address}/{num}:
+    get:
+      operationId: modules.email_to.list_email_to
+      tags:
+        - Email Lookups
+      summary: Lists E-mails from the To
+      description: Lists E-mails from the To
+      parameters:
+        - name: address
+          in: path
+          type: string
+          required: True
+        - name: num
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+                    size:
+                      type: string
+                    receiving_relay_ip:
+                      type: string
+                    receiving_relay_hostname:
+                      type: string
+                    sending_relay:
+                      type: string
+                    status:
+                      type: string
+                    subject:
+                      type: string
+                    to:
+                      type: string
+                    from:
+                      type: string
+                    date:
+                      type: string
+                    useragent:
+                      type: string
+                    requesting_ip:
+                      type: string
+                    delay_before_queue:
+                      type: string
+                    delay_in_queue:
+                      type: string
+                    delay_conn_setup:
+                      type: string
+                    delay_transmission:
+                      type: string
+                    delay_total:
+                      type: string
+                    dsn_code:
+                      type: string
+                    nrcpt:
+                      type: string
+                    messageid:
+                      type: string
+                    queueid:
+                      type: string
+                    relay_source:
+                      type: string
+                    client_hostname:
+                      type: string
+                    client_ip:
+                      type: string
+
+  /modules/web_responsecode_site/{host}/{response}/{num}/{startingdate}:
+    get:
+      operationId: modules.web_responsecode_site.list_web_responsecode_site
+      tags:
+        - Website Lookups
+      summary: Lists E-mails from the To
+      description: Lists E-mails from the To
+      parameters:
+        - name: host
+          in: path
+          type: string
+          required: True
+        - name: response
+          in: path
+          type: string
+          required: True
+        - name: num
+          in: path
+          type: string
+          required: True
+        - name: startingdate
+          in: path
+          description: >
+            Date %Y-%M-%D %H:%m:%s
+            ex. 2019-03-11 16:24:57
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+  
+  /modules/web_responsecode_server/{servername}/{response}/{num}/{startingdate}:
+    get:
+      operationId: modules.web_responsecode_server.list_web_responsecode_server
+      tags:
+        - Website Lookups
+      summary: Lists E-mails from the To
+      description: Lists E-mails from the To
+      parameters:
+        - name: servername
+          in: path
+          type: string
+          required: True
+        - name: response
+          in: path
+          type: string
+          required: True
+        - name: num
+          in: path
+          type: string
+          required: True
+        - name: startingdate
+          in: path
+          description: >
+            Date %Y-%M-%D %H:%m:%s
+            ex. 2019-03-11 16:24:57
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+              
+  /modules/web_responsecode_server_count/{servername}/{response}/{startingdate}:
+    get:
+      operationId: modules.web_responsecode_server_count.list_web_responsecode_server_count
+      tags:
+        - Website Lookups
+      summary: Lists E-mails from the To
+      description: Lists E-mails from the To
+      parameters:
+        - name: servername
+          in: path
+          type: string
+          required: True
+        - name: response
+          in: path
+          type: string
+          required: True
+        - name: startingdate
+          in: path
+          description: >
+            Date %Y-%M-%D %H:%m:%s
+            ex. 2019-03-11 16:24:57
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+
+  /modules/web_responsecode_site_count/{host}/{response}/{startingdate}:
+    get:
+      operationId: modules.web_responsecode_site_count.list_web_responsecode_site_count
+      tags:
+        - Website Lookups
+      summary: Lists E-mails from the To
+      description: Lists E-mails from the To
+      parameters:
+        - name: host
+          in: path
+          type: string
+          required: True
+        - name: response
+          in: path
+          type: string
+          required: True
+        - name: startingdate
+          in: path
+          description: >
+            Date %Y-%M-%D %H:%m:%s
+            ex. 2019-03-11 16:24:57
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    response:
+                      type: string
+
+  /modules/web_request/{protocol}/{url}:
+    get:
+      operationId: modules.web_request.get_request
+      tags:
+        - Website Lookups
+      summary: Lists E-mails from the To
+      description: Lists E-mails from the To
+      parameters:
+        - name: protocol
+          in: path
+          description: 'http or https'
+          type: string
+          required: True
+        - name: url
+          in: path
+          description: 'url without protocol ex. www.ajax.ca'
+          type: string
+          format: path
+          required: True
+      responses:
+        200:
+          description: Successfully listed E-mails
+          schema:
+            properties:
+              data:
+                type: object
+                properties:
+                    message:
+                      type: string
